@@ -1,0 +1,12 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+.bg1{background: rgb(255,231,205);
+    background: linear-gradient(90deg, rgba(255,231,205,1) 0%, rgba(255,255,255,1) 100%);
+}
+
+.group:hover .group-hover\:visible {
+    visibility: visible;
+  }
