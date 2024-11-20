@@ -1,5 +1,5 @@
 import React, { useRef, useState } from 'react'
-import { donateBlood } from '../services/Api';
+import { donateBlood, sendEmail } from '../services/Api';
 
 const Donar = () => {
   const [visible, setVisible] = useState(false);
@@ -33,7 +33,16 @@ const Donar = () => {
       console.log("Donar",donarData);
       const response = await donateBlood(donarData);
       console.log("Form submitted successfully",response);
-      alert("Thankyou...!");
+
+      const emailResponse = await sendEmail({
+        email:donarData.email,
+        name:donarData.name,
+        bloodGroup:donarData.bloodGroup,
+        location:donarData.location
+      })
+      console.log('Email sent successfully:', emailResponse);
+      alert("Thankyou...! A conformation email has been sent to you");
+      setVisible(!visible);
     }catch (error) {
       console.error("Error submitting form:",error);
       alert("Failed to submit request")

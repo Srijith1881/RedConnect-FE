@@ -1,5 +1,5 @@
 import axios from "axios";
-import { server_API, server_API2 } from "../server";
+import { server_API, server_API2, server_API3 } from "../server";
 import { server_API1 } from "../server";
 
 export const requestBlood = async (formData) => {
@@ -11,6 +11,7 @@ export const requestBlood = async (formData) => {
     throw error;
   }
 };
+
 export const donateBlood = async (donarData) => {
   try {
     const response = await axios.post(`${server_API2}/post-donar-data`,donarData);
@@ -20,6 +21,18 @@ export const donateBlood = async (donarData) => {
     throw error;
   }
 };
+
+
+export const sendEmail = async (emailData) => {
+  try {
+    const response = await axios.post(`${server_API3}/send-email`, emailData);
+    return response.data;
+  } catch (error) {
+    console.error('Error sending email:', error);
+    throw error;
+  }
+};
+
 
 // const userLogin = (loginData) => axios.post(`${server_API1}/login`, loginData);
 // console.log(userLogin)
