@@ -25,9 +25,9 @@ const Home = () => {
                         <button className="bg-red-500 text-white px-8 py-3 rounded-md hover:bg-red-600 transition duration-300 shadow-lg hover:shadow-xl transform hover:scale-105" onClick={() => navigate("/donar")}>
                             Donate Now
                         </button>
-                            <button className="bg-gray-300 text-gray-800 px-8 py-3 rounded-md hover:bg-gray-400 transition duration-300 shadow-md hover:shadow-lg transform hover:scale-105" onClick={() => navigate("/Learnmore")}>
-                                Learn More
-                            </button>
+                        <button className="bg-gray-300 text-gray-800 px-8 py-3 rounded-md hover:bg-gray-400 transition duration-300 shadow-md hover:shadow-lg transform hover:scale-105" onClick={() => navigate("/patientdashboard")}>
+                            Request Now
+                        </button>
                     </div>
                 </div>
 

@@ -1,4 +1,4 @@
-import { CircleX } from 'lucide-react';
+import { CircleX, OctagonAlert } from 'lucide-react';
 import React, { useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { userRegister } from '../services/Api';
@@ -75,27 +75,27 @@ const Register = () => {
                     <form className="flex flex-col gap-4" ref={formRef} onSubmit={handleSubmit}>
                         <div className="flex flex-col">
                             <input type="text" name='name' placeholder='Name' className='p-3 bg-[#f8f8f8] w-full outline-none rounded-md' />
-                            {error.name && <p className="text-red-500 text-sm mt-1"><OctagonAlert className='mr-1 w-10 h-10'/>{error.name}</p>}
+                            {error.name && <p className="text-red-500 flex items-center text-sm"><OctagonAlert className='mr-1 w-5 h-5'/>{error.name}</p>}
                         </div>
 
                         <div className="flex flex-col">
                             <input type="email" name='email' placeholder='Email' className='p-3 bg-[#f8f8f8] w-full outline-none rounded-md' />
-                            {error.email && <p className="text-red-500 text-sm mt-1"><OctagonAlert className='mr-1 w-10 h-10'/>{error.email}</p>}
+                            {error.email && <p className="text-red-500 text-sm flex items-center"><OctagonAlert className='mr-1 w-5 h-5'/>{error.email}</p>}
                         </div>
 
                         <div className="flex flex-col">
                             <input type="password" name='password' placeholder='Password' className='p-3 bg-[#f8f8f8] w-full outline-none rounded-md' />
-                            {error.password && <p className="text-red-500 text-sm mt-1"><OctagonAlert className='mr-1 w-10 h-10'/>{error.password}</p>}
+                            {error.password && <p className="text-red-500 text-sm flex items-center"><OctagonAlert className='mr-1 w-9 h-9'/>{error.password}</p>}
                         </div>
 
                         <div className="flex flex-col">
                             <input type="text" name='phone' placeholder='Phone-no' className='p-3 bg-[#f8f8f8] w-full outline-none rounded-md' />
-                            {error.phone && <p className="text-red-500 text-sm mt-1"><OctagonAlert className='mr-1 w-10 h-10'/>{error.phone}</p>}
+                            {error.phone && <p className="text-red-500 text-sm flex items-center"><OctagonAlert className='mr-1 w-5 h-5'/>{error.phone}</p>}
                         </div>
 
                         <div className="flex flex-col">
                             <input type="text" name='location' placeholder='Location' className='p-3 bg-[#f8f8f8] w-full outline-none rounded-md' />
-                            {error.location && <p className="text-red-500 text-sm mt-1"><OctagonAlert className='mr-1 w-10 h-10'/>{error.location}</p>}
+                            {error.location && <p className="text-red-500 text-sm flex items-center"><OctagonAlert className='mr-1 w-5 h-5'/>{error.location}</p>}
                         </div>
 
                         <select name='role' defaultValue="user" className='p-3 bg-[#f8f8f8] w-full outline-none rounded-md'>
