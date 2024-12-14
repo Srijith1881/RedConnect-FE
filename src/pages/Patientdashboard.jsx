@@ -39,122 +39,126 @@ const Patientdashboard = () => {
   };
 
   return (
-    <div className="min-h-screen w-screen flex items-center justify-between px-10 bg-gray-100 py-10">
-      <div className="flex flex-col justify-center items-start w-1/2">
-        <h1 className="text-4xl font-bold text-gray-800 mb-4">
-          Blood Request Procedure
-        </h1>
-        <p className="text-lg text-gray-600 mb-4">
-          1. Patient submits a blood request with necessary details.
-        </p>
-        <p className="text-lg text-gray-600 mb-4">
-          2. The blood bank verifies the availability of blood.
-        </p>
-        <p className="text-lg text-gray-600 mb-4">
-          3. If available, the blood is prepared for dispatch.
-        </p>
-        <p className="text-lg text-gray-600 mb-4">
-          4. Blood is transported to the hospital or the patients location.
-        </p>
-        <p className="text-lg text-gray-600 mb-4">
-          5. The patient receives the blood and necessary documentation is
-          completed.
-        </p>
-      </div>
+    <div className="min-h-screen w-screen flex flex-col lg:flex-row items-center justify-between px-6 lg:px-10 bg-gray-100 py-10">
+  {/* Left Section */}
+  <div className="w-full lg:w-1/2 mb-10 lg:mb-0 flex flex-col items-start justify-center">
+    <h1 className="text-3xl md:text-4xl font-bold text-gray-800 mb-6 text-center lg:text-left">
+      Blood Request Procedure
+    </h1>
+    <ul className="text-base md:text-lg text-gray-600 space-y-4">
+      <li>1. Patient submits a blood request with necessary details.</li>
+      <li>2. The blood bank verifies the availability of blood.</li>
+      <li>3. If available, the blood is prepared for dispatch.</li>
+      <li>4. Blood is transported to the hospital or the patient's location.</li>
+      <li>5. The patient receives the blood, and necessary documentation is completed.</li>
+    </ul>
+  </div>
 
-      <div className="w-1/2 flex flex-col items-center">
-        {!visible ? (
-          <button
-            onClick={handleRequestBloodClick}
-            className="bg-red-500 text-white px-6 py-3 rounded-md text-lg font-bold hover:bg-red-600 transition duration-300">
-            Request Blood
-          </button>
-        ) : (
-          <div className="w-full flex flex-col items-center bg-white shadow-lg p-6 rounded-md">
-            <h2 className="text-2xl font-bold text-gray-800 mb-4">
-              Request Blood
-            </h2>
-            <form
-              ref={formRef}
-              onSubmit={handleSubmit}
-              className="w-full max-w-md flex flex-col gap-4"
-            >
-              <input
-                type="text"
-                name="name"
-                placeholder="Patient Name"
-                className="p-3 bg-gray-100 w-full rounded-md outline-none focus:border-b-2 border-red-500"
-                required
-              />
+  {/* Right Section */}
+  <div className="w-full lg:w-1/2 flex flex-col items-center lg:justify-start pt-6 lg:pt-0">
+  {!visible ? (
+    <button
+      onClick={handleRequestBloodClick}
+      className="bg-red-500 text-white px-6 py-5 rounded-md text-lg font-bold hover:bg-red-600 transition duration-300 mt-6 lg:mt-0">
+      Request Blood
+    </button>
+    ) : (
+      <div className="w-full bg-white shadow-lg p-6 rounded-md">
+        <h2 className="text-2xl md:text-3xl font-bold text-gray-800 mb-6 text-center">
+          Request Blood
+        </h2>
+        <form
+          ref={formRef}
+          onSubmit={handleSubmit}
+          className="w-full flex flex-col gap-6"
+        >
+          {/* Patient Name */}
+          <input
+            type="text"
+            name="name"
+            placeholder="Patient Name"
+            className="p-3 bg-gray-100 border border-gray-300 rounded-md outline-none focus:border-red-500 focus:ring-1 focus:ring-red-500"
+            required
+          />
 
-              <select
-                name="emergency"
-                className="p-3 bg-gray-100 w-full rounded-md outline-none focus:border-b-2 border-red-500"
-                defaultValue="Emergency"
-                required
-              >
-                <option value="Emergency">Emergency</option>
-                <option value="Non-Emergency">Non-Emergency</option>
-              </select>
+          {/* Emergency Status */}
+          <select
+            name="emergency"
+            className="p-3 bg-gray-100 border border-gray-300 rounded-md outline-none focus:border-red-500 focus:ring-1 focus:ring-red-500"
+            defaultValue="Emergency"
+            required
+          >
+            <option value="Emergency">Emergency</option>
+            <option value="Non-Emergency">Non-Emergency</option>
+          </select>
 
-              <input
-                type="text"
-                name="location"
-                placeholder="Location"
-                className="p-3 bg-gray-100 w-full rounded-md outline-none focus:border-b-2 border-red-500"
-                required
-              />
-              <input
-                type="number"
-                name="age"
-                placeholder="Age"
-                className="p-3 bg-gray-100 w-full rounded-md outline-none focus:border-b-2 border-red-500"
-                required
-              />
+          {/* Location */}
+          <input
+            type="text"
+            name="location"
+            placeholder="Location"
+            className="p-3 bg-gray-100 border border-gray-300 rounded-md outline-none focus:border-red-500 focus:ring-1 focus:ring-red-500"
+            required
+          />
 
-              <select
-                name="gender"
-                className="p-3 bg-gray-100 w-full rounded-md outline-none focus:border-b-2 border-red-500"
-                defaultValue="Male"
-                required
-              >
-                <option value="Male">Male</option>
-                <option value="Female">Female</option>
-                <option value="Other">Other</option>
-                <option value="Prefer not to say">Prefer not to say</option>
-              </select>
+          {/* Age */}
+          <input
+            type="number"
+            name="age"
+            placeholder="Age"
+            className="p-3 bg-gray-100 border border-gray-300 rounded-md outline-none focus:border-red-500 focus:ring-1 focus:ring-red-500"
+            required
+          />
 
-              <div className="grid grid-cols-4 gap-4 mt-4">
-                {bloodGroups.map((group) => (
-                  <button
-                    type="button"
-                    key={group}
-                    onClick={() => handleBloodGroupClick(group)}
-                    className={`p-3 border rounded-md flex flex-col items-center justify-center text-lg font-bold ${
-                      selectedBloodGroup === group
-                        ? "bg-red-500 text-white"
-                        : "bg-gray-100 text-gray-800 hover:bg-red-100"
-                    }`}
-                  >
-                    <span className="text-2xl p-1 bg-gray-100 hover:bg-red-100">🩸</span>
-                    {group}
-                  </button>
-                ))}
-              </div>
+          {/* Gender */}
+          <select
+            name="gender"
+            className="p-3 bg-gray-100 border border-gray-300 rounded-md outline-none focus:border-red-500 focus:ring-1 focus:ring-red-500"
+            defaultValue="Male"
+            required
+          >
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+            <option value="Other">Other</option>
+            <option value="Prefer not to say">Prefer not to say</option>
+          </select>
 
-              <input type="hidden" name="bloodGroup" />
-
+          {/* Blood Group Selection */}
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
+            {bloodGroups.map((group) => (
               <button
-                type="submit"
-                className="mt-6 bg-red-500 text-white px-6 py-3 rounded-md text-lg font-bold hover:bg-red-600 transition duration-300"
+                type="button"
+                key={group}
+                onClick={() => handleBloodGroupClick(group)}
+                className={`p-3 border rounded-md flex flex-col items-center justify-center text-lg font-bold ${
+                  selectedBloodGroup === group
+                    ? "bg-red-500 text-white"
+                    : "bg-gray-100 text-gray-800 hover:bg-red-100"
+                }`}
               >
-                Submit Request
+                <span className="text-2xl">🩸</span>
+                {group}
               </button>
-            </form>
+            ))}
           </div>
-        )}
+
+          {/* Hidden Input for Blood Group */}
+          <input type="hidden" name="bloodGroup" />
+
+          {/* Submit Button */}
+          <button
+            type="submit"
+            className="mt-6 bg-red-500 text-white px-6 py-3 rounded-md text-lg font-bold hover:bg-red-600 transition duration-300"
+          >
+            Submit Request
+          </button>
+        </form>
       </div>
-    </div>
+    )}
+  </div>
+</div>
+
+
   );
 };
 
