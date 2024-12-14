@@ -63,52 +63,73 @@ const Login = () => {
     };
 
     return (
-        <div className="h-screen w-screen absolute top-0 left-0 bg-black/25 flex justify-center items-center z-50">
-            <div className="h-[50%] w-[30%] max-w-md bg-white z-50 flex flex-col shadow-lg rounded-md">
-                <div className="w-full h-[15%] flex items-center justify-between px-6 border-b-2 text-red-600 bg-[#ffe7cd] text-xl font-bold rounded-t-md">
+        <div className="h-screen w-screen fixed top-0 left-0 bg-black/40 flex justify-center items-center z-50">
+            <div className="w-[90%] sm:w-[70%] md:w-[50%] lg:w-[35%] max-w-lg bg-white z-50 flex flex-col shadow-xl rounded-lg overflow-hidden">
+                {/* Header */}
+                <div className="w-full bg-[#ffe7cd] text-red-600 text-lg sm:text-xl font-semibold flex items-center justify-between px-6 py-4 border-b">
                     <span>Login</span>
-                    <CircleX onClick={() => navigate("/")} className="cursor-pointer" />
+                    <CircleX onClick={() => navigate("/")} className="cursor-pointer text-xl hover:text-red-800 transition-colors" />
                 </div>
-                <div className="w-full h-[85%] flex justify-center items-center">
-                    <form className="w-[80%] flex flex-col gap-4" onSubmit={handleSubmit}>
-                        <input
-                            type="email"
-                            ref={emailRef}
-                            placeholder="Email"
-                            className="p-3 bg-[#f8f8f8] w-full font-bold outline-none focus:border-b-2 border-transparent hover:border-black rounded-md"
-                            required
-                        />
-                        
-                        {errors.email && <p className="text-red-600 text-sm"><OctagonAlert className='mr-1 w-11 h-11'/>{errors.email}</p>}
-                        
-                        <input
-                            type="password"
-                            ref={passwordRef}
-                            placeholder="Password"
-                            className="p-3 bg-[#f8f8f8] w-full font-bold outline-none focus:border-b-2 border-transparent hover:border-black rounded-md"
-                            required
-                        />
-                        {errors.password && <p className="text-red-600 text-sm flex items-center">
-                            <OctagonAlert className='mr-1 w-11 h-11'/>{errors.password}</p>}
-                        
+
+                {/* Form Section */}
+                <div className="w-full p-6 flex flex-col items-center">
+                    <form className="w-full flex flex-col gap-6" onSubmit={handleSubmit}>
+                        {/* Email Input */}
+                        <div className="flex flex-col gap-1">
+                            <input
+                                type="email"
+                                ref={emailRef}
+                                placeholder="Email"
+                                className="p-3 bg-gray-100 border border-gray-300 rounded-md focus:ring-2 focus:ring-red-500 focus:outline-none text-gray-700"
+                                required
+                            />
+                            {errors.email && (
+                                <p className="text-red-600 text-sm flex items-center">
+                                    <OctagonAlert className="mr-2 w-5 h-5" />
+                                    {errors.email}
+                                </p>
+                            )}
+                        </div>
+
+                        {/* Password Input */}
+                        <div className="flex flex-col gap-1">
+                            <input
+                                type="password"
+                                ref={passwordRef}
+                                placeholder="Password"
+                                className="p-3 bg-gray-100 border border-gray-300 rounded-md focus:ring-2 focus:ring-red-500 focus:outline-none text-gray-700"
+                                required
+                            />
+                            {errors.password && (
+                                <p className="text-red-600 text-sm flex items-center">
+                                    <OctagonAlert className="mr-2 w-12 h-12" />
+                                    {errors.password}
+                                </p>
+                            )}
+                        </div>
+
+                        {/* Login Button */}
                         <button
                             type="submit"
-                            className="bg-red-600 p-3 text-[#ffe7cd] w-full rounded-md text-lg font-bold mt-4"
+                            className="bg-red-600 text-white p-3 rounded-md text-lg font-semibold hover:bg-red-700 transition-transform transform hover:scale-105"
                         >
                             Login
                         </button>
+
+                        {/* Register Button */}
                         <button
                             type="button"
-                            className="text-blue-700 hover:text-red-500 text-center font-semibold mt-2"
+                            className="text-red-600 font-medium hover:underline text-center mt-2"
                             onClick={() => navigate("/register")}
                         >
-                            Register
+                            Don't have an account? Register
                         </button>
                     </form>
                 </div>
             </div>
             <Toaster />
         </div>
+
     );
 };
 

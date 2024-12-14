@@ -65,49 +65,121 @@ const Register = () => {
     };
 
     return (
-        <div className='h-screen w-screen bg-black/25 absolute top-0 left-0 flex justify-center items-center z-50'>
-            <div className='w-full max-w-lg h-auto bg-white shadow-lg rounded-md flex flex-col'>
-                <div className='w-full py-4 px-6 flex items-center justify-between border-b border-red-600 bg-[#ffe7cd] text-red-600 text-xl font-bold rounded-t-md'>
-                    <div>Register</div>
-                    <CircleX onClick={() => navigate("/")} className="cursor-pointer" />
-                </div>
-                <div className="w-full py-6 px-8">
-                    <form className="flex flex-col gap-4" ref={formRef} onSubmit={handleSubmit}>
-                        <div className="flex flex-col">
-                            <input type="text" name='name' placeholder='Name' className='p-3 bg-[#f8f8f8] w-full outline-none rounded-md' />
-                            {error.name && <p className="text-red-500 flex items-center text-sm"><OctagonAlert className='mr-1 w-5 h-5'/>{error.name}</p>}
-                        </div>
-
-                        <div className="flex flex-col">
-                            <input type="email" name='email' placeholder='Email' className='p-3 bg-[#f8f8f8] w-full outline-none rounded-md' />
-                            {error.email && <p className="text-red-500 text-sm flex items-center"><OctagonAlert className='mr-1 w-5 h-5'/>{error.email}</p>}
-                        </div>
-
-                        <div className="flex flex-col">
-                            <input type="password" name='password' placeholder='Password' className='p-3 bg-[#f8f8f8] w-full outline-none rounded-md' />
-                            {error.password && <p className="text-red-500 text-sm flex items-center"><OctagonAlert className='mr-1 w-9 h-9'/>{error.password}</p>}
-                        </div>
-
-                        <div className="flex flex-col">
-                            <input type="text" name='phone' placeholder='Phone-no' className='p-3 bg-[#f8f8f8] w-full outline-none rounded-md' />
-                            {error.phone && <p className="text-red-500 text-sm flex items-center"><OctagonAlert className='mr-1 w-5 h-5'/>{error.phone}</p>}
-                        </div>
-
-                        <div className="flex flex-col">
-                            <input type="text" name='location' placeholder='Location' className='p-3 bg-[#f8f8f8] w-full outline-none rounded-md' />
-                            {error.location && <p className="text-red-500 text-sm flex items-center"><OctagonAlert className='mr-1 w-5 h-5'/>{error.location}</p>}
-                        </div>
-
-                        <select name='role' defaultValue="user" className='p-3 bg-[#f8f8f8] w-full outline-none rounded-md'>
-                            <option value="user">User</option>
-                            <option value="employee">Employee</option>
-                        </select>
-
-                        <button type="submit" className="bg-red-600 p-3 text-[#ffe7cd] w-full rounded-md text-lg font-bold">Register</button>
-                    </form>
-                </div>
-            </div>
+        <div className="h-screen w-screen bg-black/40 fixed top-0 left-0 flex justify-center items-center z-50">
+    <div className="w-[90%] sm:w-[70%] md:w-[50%] lg:w-[35%] max-w-lg bg-white shadow-xl rounded-lg overflow-hidden">
+        {/* Header */}
+        <div className="w-full bg-[#ffe7cd] text-red-600 text-lg sm:text-xl font-semibold flex items-center justify-between px-6 py-4 border-b border-red-600">
+            <span>Register</span>
+            <CircleX onClick={() => navigate("/")} className="cursor-pointer text-xl hover:text-red-800 transition-colors" />
         </div>
+
+        {/* Form Section */}
+        <div className="w-full p-6 flex flex-col items-center">
+            <form className="w-full flex flex-col gap-6" ref={formRef} onSubmit={handleSubmit}>
+                {/* Name Input */}
+                <div className="flex flex-col gap-1">
+                    <input
+                        type="text"
+                        name="name"
+                        placeholder="Name"
+                        className="p-3 bg-gray-100 border border-gray-300 rounded-md focus:ring-2 focus:ring-red-500 focus:outline-none text-gray-700"
+                    />
+                    {error.name && (
+                        <p className="text-red-500 text-sm flex items-center">
+                            <OctagonAlert className="mr-2 w-5 h-5" />
+                            {error.name}
+                        </p>
+                    )}
+                </div>
+
+                {/* Email Input */}
+                <div className="flex flex-col gap-1">
+                    <input
+                        type="email"
+                        name="email"
+                        placeholder="Email"
+                        className="p-3 bg-gray-100 border border-gray-300 rounded-md focus:ring-2 focus:ring-red-500 focus:outline-none text-gray-700"
+                    />
+                    {error.email && (
+                        <p className="text-red-500 text-sm flex items-center">
+                            <OctagonAlert className="mr-2 w-5 h-5" />
+                            {error.email}
+                        </p>
+                    )}
+                </div>
+
+                {/* Password Input */}
+                <div className="flex flex-col gap-1">
+                    <input
+                        type="password"
+                        name="password"
+                        placeholder="Password"
+                        className="p-3 bg-gray-100 border border-gray-300 rounded-md focus:ring-2 focus:ring-red-500 focus:outline-none text-gray-700"
+                    />
+                    {error.password && (
+                        <p className="text-red-500 text-sm flex items-center">
+                            <OctagonAlert className="mr-2 w-10 h-10" />
+                            {error.password}
+                        </p>
+                    )}
+                </div>
+
+                {/* Phone Number Input */}
+                <div className="flex flex-col gap-1">
+                    <input
+                        type="text"
+                        name="phone"
+                        placeholder="Phone Number"
+                        className="p-3 bg-gray-100 border border-gray-300 rounded-md focus:ring-2 focus:ring-red-500 focus:outline-none text-gray-700"
+                    />
+                    {error.phone && (
+                        <p className="text-red-500 text-sm flex items-center">
+                            <OctagonAlert className="mr-2 w-5 h-5" />
+                            {error.phone}
+                        </p>
+                    )}
+                </div>
+
+                {/* Location Input */}
+                <div className="flex flex-col gap-1">
+                    <input
+                        type="text"
+                        name="location"
+                        placeholder="Location"
+                        className="p-3 bg-gray-100 border border-gray-300 rounded-md focus:ring-2 focus:ring-red-500 focus:outline-none text-gray-700"
+                    />
+                    {error.location && (
+                        <p className="text-red-500 text-sm flex items-center">
+                            <OctagonAlert className="mr-2 w-5 h-5" />
+                            {error.location}
+                        </p>
+                    )}
+                </div>
+
+                {/* Role Selection */}
+                <div className="flex flex-col gap-1">
+                    <select
+                        name="role"
+                        defaultValue="user"
+                        className="p-3 bg-gray-100 border border-gray-300 rounded-md focus:ring-2 focus:ring-red-500 focus:outline-none text-gray-700"
+                    >
+                        <option value="user">User</option>
+                        <option value="employee">Employee</option>
+                    </select>
+                </div>
+
+                {/* Submit Button */}
+                <button
+                    type="submit"
+                    className="bg-red-600 text-white p-3 rounded-md text-lg font-semibold hover:bg-red-700 transition-transform transform hover:scale-105"
+                >
+                    Register
+                </button>
+            </form>
+        </div>
+    </div>
+</div>
+
     );
 };
 

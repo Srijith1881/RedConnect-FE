@@ -12,33 +12,41 @@ const Home = () => {
 
     return (
         <div className="min-h-screen w-screen bg-white">
-
-            <section className="min-h-screen w-screen flex flex-col lg:flex-row items-center justify-between px-6 lg:px-20 py-10 bg-white">
-                <div className="flex flex-col justify-center items-start lg:w-1/2 space-y-4 lg:space-y-6 text-center lg:text-left">
-                    <h1 className="text-4xl lg:text-5xl font-bold text-gray-900 leading-tight">
+            <section className="min-h-screen w-screen flex flex-col lg:flex-row items-center lg:items-center justify-center lg:justify-between px-6 lg:px-20 py-10 bg-white">
+                {/* Text Content */}
+                <div className="flex flex-col items-center lg:items-start lg:w-1/2 space-y-4 lg:space-y-6 text-center lg:text-left">
+                    <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 leading-tight">
                         Donate Blood, Save Lives
                     </h1>
-                    <p className="text-md lg:text-lg text-gray-700 max-w-lg">
+                    <p className="text-sm sm:text-md lg:text-lg text-gray-700 max-w-md sm:max-w-lg">
                         Join us in making a difference. Your blood donation can help save someone’s life. Be a hero today!
                     </p>
-                    <div className="flex flex-col lg:flex-row space-y-4 lg:space-y-0 lg:space-x-4">
-                        <button className="bg-red-500 text-white px-8 py-3 rounded-md hover:bg-red-600 transition duration-300 shadow-lg hover:shadow-xl transform hover:scale-105" onClick={() => navigate("/donar")}>
+                    <div className="flex flex-col sm:flex-row sm:justify-center lg:justify-start space-y-4 sm:space-y-0 sm:space-x-4">
+                        <button
+                            className="bg-red-500 text-white px-6 sm:px-8 py-2 sm:py-3 rounded-md hover:bg-red-600 transition duration-300 shadow-lg hover:shadow-xl transform hover:scale-105"
+                            onClick={() => navigate("/donar")}
+                        >
                             Donate Now
                         </button>
-                        <button className="bg-gray-300 text-gray-800 px-8 py-3 rounded-md hover:bg-gray-400 transition duration-300 shadow-md hover:shadow-lg transform hover:scale-105" onClick={() => navigate("/patientdashboard")}>
+                        <button
+                            className="bg-gray-300 text-gray-800 px-6 sm:px-8 py-2 sm:py-3 rounded-md hover:bg-gray-400 transition duration-300 shadow-md hover:shadow-lg transform hover:scale-105"
+                            onClick={() => navigate("/patientdashboard")}
+                        >
                             Request Now
                         </button>
                     </div>
                 </div>
 
+                {/* Image Section */}
                 <div className="lg:w-1/2 w-full flex justify-center lg:justify-end mt-8 lg:mt-0">
                     <img
                         src={x}
                         alt="Blood Donation"
-                        className="w-full lg:w-3/4 object-cover rounded-lg shadow-md transition-transform duration-300 ease-in-out hover:scale-110"
+                        className="w-full max-w-sm sm:max-w-md lg:max-w-lg object-cover rounded-lg shadow-md transition-transform duration-300 ease-in-out hover:scale-110"
                     />
                 </div>
             </section>
+
 
             <section className="px-6 lg:px-20 py-16 bg-gray-50">
                 <h2 className="text-3xl font-semibold text-gray-900 text-center mb-8">How It Works</h2>
@@ -79,7 +87,7 @@ const Home = () => {
                 <div className="px-6 lg:px-20 flex flex-col lg:flex-row justify-between items-center">
                     <div className="text-center lg:text-left mb-4 lg:mb-0">
                         <h4 className="text-lg font-semibold">Contact Us</h4>
-                        <a href="mailto:support@blooddonation.com" className="hover:underline text-gray-300">support@blooddonation.com</a>
+                        <a href="mailto:support@redconnect.in" className="hover:underline text-gray-300">support@blooddonation.com</a>
 
                         {/* <p>Email: support@blooddonation.com</p> */}
                         <p>Phone: +91 9943944049</p>
